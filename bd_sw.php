@@ -8,4 +8,4 @@ CREATE TABLE
         `imagem` VARCHAR(150) NULL DEFAULT NULL,
         PRIMARY KEY (`id`)
     )
->
+?>

@@ -12,6 +12,5 @@ try {
 
 } catch (PDOException $e) {
     echo 'Erro:' . $e->getMessage();
-    echo ("Não conectado");
 }
 ?>

@@ -7,7 +7,6 @@ $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : null;
 $imagem = isset($_POST['imagem']) ? $_POST['imagem'] : null;
 
 try {
-    // Prepara a consulta para atualizar apenas os campos que foram fornecidos
     $updateFields = [];
     $params = [':id' => $id];
 

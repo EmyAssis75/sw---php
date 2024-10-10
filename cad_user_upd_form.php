@@ -1,9 +1,17 @@
+<?php
+session_start();
+require('conect.php'); // Colocar antes de qualquer saída ou uso da conexão
+
+// Verificar se a conexão foi bem-sucedida
+if (!$pdo) {
+    die("Erro na conexão com o banco de dados.");
+}
+
+echo "Usuário Conectado: " . htmlspecialchars($_SESSION["login"]) . "<br>";
+?>
+
 <fieldset id="fie">
     <div style="text-align: center;">
-        <?php
-        session_start();
-        echo "Usuário Conectado: " . htmlspecialchars($_SESSION["login"]) . "<br>";
-        ?>
         <legend>Lista de Usuários</legend>
         <table border="1" style="margin: 0 auto;">
             <tr>
@@ -13,7 +21,6 @@
                 <th width="100px">Imagem</th>
             </tr>
             <?php
-            require('conect.php');
             $stmt = $pdo->query('SELECT * FROM seubanco.usuario;');
 
             while ($linha = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -37,7 +44,7 @@
             <table style="margin: 0 auto;">
                 <tr>
                     <td><label for="id">ID:</label></td>
-                    <td><input type="text" name="id" id="id" required /></td>
+                    <td><input type="number" name="id" id="id" required /></td> <!-- Alterado para number -->
                 </tr>
                 <tr>
                     <td><label for="nome">NOME:</label></td>
